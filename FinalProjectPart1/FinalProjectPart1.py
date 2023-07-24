@@ -1,3 +1,5 @@
+# John Rebles
+# PSID: 2039426
 import csv
 import datetime
 
@@ -26,7 +28,7 @@ manufacturer_data = csv_reader('ManufacturerList.csv', 0)
 price_data = csv_reader('PriceList.csv', 0)
 service_data = csv_reader('ServiceDatesList.csv', 0)
 
-# create inventory objects with their values and store them in the full_inventory list
+# create inventory objects and store them in the full_inventory list
 full_inventory_list = []
 
 for item_id, data in manufacturer_data.items():
@@ -38,7 +40,7 @@ for item_id, data in manufacturer_data.items():
     inventory_item = InventoryItems(item_id, manufacturer_name, inventory_type, damage_indicator, price, service_date)
     full_inventory_list.append(inventory_item)
 
-# Sort the full inventory list by manufacturer name
+# Sort the full inventory list by manufacturer
 full_inventory_list.sort(key=lambda item: item.man_name)
 
 # Output the FullInventory.csv
@@ -49,11 +51,11 @@ with open('FullInventory.csv', 'w', newline='') as file:
     for item in full_inventory_list:
         writer.writerow([item.item_id, item.man_name, item.item_type, item.price, item.service_date, item.damage_indicator])
 
-# Create Item type dict LaptopInventory.csv, PhoneInventory.csv
+# Create Item type dict LaptopInventory.csv, PhoneInventory.csv...
 inventory_type_dict = {}
 
 for item in full_inventory_list:
-    item_type = item.item_type.replace(' ', '')  # Remove spaces from type
+    item_type = item.item_type.replace(' ', '') 
 
     if item_type not in inventory_type_dict:
         inventory_type_dict[item_type] = []
@@ -87,7 +89,7 @@ with open('PastServiceDateInventory.csv', 'w', newline='') as file:
 # Create DamagedInventory.csv
 damaged_inventory = [item for item in full_inventory_list if item.damage_indicator]
 
-# Sort damaged items by price in order
+# Sort damaged items by price
 damaged_inventory.sort(key=lambda item: item.price, reverse=True)
 
 # Output the DamagedInventory.csv
