@@ -1,3 +1,6 @@
+# John Rebeles
+# PSID: 2039426
+
 def get_age():
     age = int(input())
     if age < 18 or age > 75:
