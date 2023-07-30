@@ -1,3 +1,6 @@
+# John Rebeles
+# PSID: 2039426
+
 def selection_sort_descend_trace(numbers):
     for i in range(len(numbers) - 1):
         # Find index of largest remaining element for descending order
