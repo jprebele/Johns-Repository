@@ -1,3 +1,6 @@
+# John Rebeles
+# PSID: 2039426
+
 # Split input into 2 parts: name and age
 parts = input().split()
 name = parts[0]
