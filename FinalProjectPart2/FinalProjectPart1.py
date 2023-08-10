@@ -1,5 +1,6 @@
 # John Rebeles
-# PSID: 2039426
+
+# PSID:2039426
 import csv
 import datetime
 
@@ -48,7 +49,7 @@ for item_id, data in manufacturer_data.items():
     inventory_item = InventoryItems(item_id, manufacturer_name, inventory_type, damage_indicator, price, service_date)
     full_inventory_list.append(inventory_item)
 
-# Sort the full inventory list by manufacturer name (using selection sort for simplicity)
+# Sort the full inventory list by manufacturer name (using selection sort)
 for i in range(len(full_inventory_list)):
     index = i
     for j in range(i + 1, len(full_inventory_list)):
@@ -69,13 +70,13 @@ with open('FullInventory.csv', 'w', newline='') as file:
 inventory_type_dict = {}
 
 for item in full_inventory_list:
-    item_type = item.item_type.replace(' ', '')  # Remove spaces from type
+    item_type = item.item_type.replace(' ', '') 
 
     if item_type not in inventory_type_dict:
         inventory_type_dict[item_type] = []
     inventory_type_dict[item_type].append(item)
 
-# Sort each item type inventory list by ID (using selection sort for simplicity)
+# Sort each item type inventory list by ID (using selection sort)
 for item_type, items in inventory_type_dict.items():
     for i in range(len(items)):
         min_index = i
@@ -100,7 +101,7 @@ for item in full_inventory_list:
     if item.service_date != 'none' and item.service_date < current_date:
         prev_service_date.append(item)
 
-# Sort past service date items by service date (using selection sort for simplicity)
+# Sort past service date items by service date (using selection sort)
 for i in range(len(prev_service_date)):
     min_num = i
     for j in range(i + 1, len(prev_service_date)):
@@ -123,7 +124,7 @@ for item in full_inventory_list:
     if item.damage_indicator:
         damaged_inventory.append(item)
 
-# Sort damaged items by price in order (using selection sort for simplicity)
+# Sort damaged items by price in order (using selection sort)
 for i in range(len(damaged_inventory)):
     max_index = i
     for j in range(i + 1, len(damaged_inventory)):
